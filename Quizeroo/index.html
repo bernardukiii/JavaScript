@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <title>Quizeroo</title>
+</head>
+<body>
+<!-- Header of page -->
+    <header id="header">
+        <h2>Welcome to <span class="word">Quizerooo!</span></h2>
+    </header>
+<!-- Main chunk -->
+    <section>
+        <div id="subtitle" class="first-subtitle">
+            <p>There are <span class="word">8 questions</span>, answer them all <span class="word">correctly</span> to <span class="word">win</span> the game...</p>
+        </div>
+        <div id="card" class="card-container">
+            <div id="question" class="actual-question hide"></div>
+            <div id="answer" class="answers hide"></div>
+        </div>
+        <button id="start" class="btn-start" title="Are you sure?">Start QUIZ</button>
+<!-- Correct Modal -->
+        <section>
+            <div id="modal" class="blocker-modal hide">
+                <header class="modal-header">
+                    <h2 class="modal-title word">CORRECT!</h2>
+                </header>
+                <p id="fact" class="fact-container"></p>
+                        
+                <footer class="correct-modal-footer">
+                    <div class="subtitle-container">
+                        <h3 class="subtitle">You may move to the next question...</h3>
+                    </div>
+                    <button id="next" class="btn-next">Next</button>
+                </footer>
+            </div>
+        </section>
+    <!-- Incorrect Modal -->
+        <section>
+            <div id="inc-modal" class="blocker-modal incorrect-modal hide">
+                <header>
+                    <h2 class="modal-title" style="color: red;">INCORRECT</h2>
+                </header>
+                    <p class="cheerup">Don't get discouraged, you'll do better next time!</p>
+                    <p class="cheerup2">[SOME RANDOM QUOTE ABOUT A FAMOUS PERSON TO MOTIVATE YOU TO KEEP ON GOING AFTER FAILURE]</p>
+                <footer class="incorrect-modal-footer">
+                    <div class="subtitle-container">
+                        <h3 class="subtitle">Don't give up, life gives second chances...</h3>
+                    </div>
+                    <button id="try-again" class="btn-retry">Try Again</button>
+                </footer>
+            </div>
+        </section>
+    <!-- Winner Modal -->
+        <section>
+            <div id="winner" class="winner-modal hide">
+                <h1 class="winner-title">WINNER!!!!</h1>
+                <p class="winner-p">If you have made it this far, it means that you have succesfully answered every question correctly and you have beat me...</p>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

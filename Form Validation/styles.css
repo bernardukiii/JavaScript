@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: grey;
+}
+
+.body-success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+/* In success page */
+h1 {
+    color: green;
+}
+
+.hide {
+    display: none !important;
+}
+
+.correct {
+    color: green;
+    background-color: lightgreen;
+}
+
+.incorrect {
+    color: #800000;
+    background-color: lightcoral;
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: grey;
+}
+
+.btn-disabled {
+    pointer-events: none;
+    background-color: lightslategray;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: #36454F;
+    color: grey;
+    margin-bottom: 10px;
+
+}
+
+.main-section {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background-color: #36454F;
+    color: lightblue;
+    padding: 2em;
+    margin: 2em;
+    overflow: hidden;
+}
+
+.form-group {
+    padding: 1em;
+    max-width: 20em;
+}
+
+input, label {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+input {
+    max-width: 100%;
+}
+
+.btn-submit-container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    padding-top: 20px;
+}
+
+.btn-submit {
+    width: 6rem;
+    height: 2rem;
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+}
+
+.agree-checkbox-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.agree-label {
+    margin-left: .2rem;
+}
+
+.prerequisites {
+    font-size: 14px;
+    margin-top: .2rem;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+
+/* Modals */
+
+.success-modal {
+    display: flex;
+    flex-direction: column;
+    height: 12rem;
+    width: 20rem;
+    padding: 10px;
+    background-color: lightgreen;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid black;
+}
+
+.success-modal-content { 
+    color: black;
+    font-family: fantasy;
+    margin-bottom: 1rem;
+}
+
+.credit {
+    color: 
+    black;
+}
+
+.terms-conditions-modal {
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    width: 20rem;
+    padding: 10px;
+    background-color: lightskyblue;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid black;
+    font-family: fantasy;
+}
+
+ol {
+    margin: 10px 20px;
+}

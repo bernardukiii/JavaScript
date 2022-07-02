@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <title>Create Account</title>
+</head>
+<body>
+    <header>
+        <h2>Welcome to account management, please create an account to continue</h2>
+    </header>
+
+    <section class="main-section">
+        <form action="success.html" id="form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" placeholder="eg: MrRari_14" name="username" id="username" onblur="checkUserName()">
+                <div id="prerequisites" class="prerequisites hide">
+                    <p id="accepted" class="correct hide">Username meets requirements!</p>
+                    <p id="min-length" class="hide">At least 8 characters.</p>
+                    <p id="max-length" class="hide">Less than 16</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" name="password" id="password" class="disabled">
+                <div id="prerequisites-pass" class="prerequisites hide">
+                    <p id="min-length-pass" class="incorrect hide">At least 14 characters</p>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="password-confirmation">Confirm password:</label>
+                <input type="text" name="confirmation" id="confirmation" class="disabled" onblur="checkPassword()">
+                <div id="prerequisites-confirm" class="prerequisites hide">
+                    <p id="accepted-pass" class="correct hide">Password meets requirements</p>
+                    <p id="mismatch" class="incorrect hide">Passwords don't match</p>
+                </div>
+            </div>
+            <div class="agree-checkbox-container">
+                <input type="checkbox" name="agree" id="agree" class="checkbox disabled">
+                <label id="agree-label" for="agree-to-terms" class="agree-label" title="Click to read me!">
+                    Agree to terms & conditions
+                </label>
+            </div>
+            <div class="btn-submit-container">
+                <button id="submit" type="submit" class="btn-submit">SUBMIT</button>
+            </div>
+        </form>
+<!-- Terms & conditions modal -->
+        <div id="terms-and-co" class="terms-conditions-modal hide">
+            <ol>
+                <li>Don't talk about CodingClub.</li>
+                <li>Don't bother me about my ugly code.</li>
+                <li>Don't come to me asking why I didn't use callbacks for this project.</li>
+                <li>Don't be an asshole. Be nice to people.</li>
+            </ol>
+            <button id="close" class="close-btn">CLOSE</button>
+        </div>
+<!-- Success popup -->
+        <div id="success-modal" class="success-modal hide">
+            <p class="success-modal-content">
+                Okay, you got me. Nothing happens when you hit submit. 
+                Everything is checked before. 
+                By the time you click on submit, everything is validated.
+            </p>
+            <p class="credit">
+                Thanks to <strong style="color: #00aaff">WebDev Simplified</strong> for making me love <strong style="background-color: yellow">JavaScript</strong> no matter how small these projects are.
+            </p>
+        </div>
+    </section>
+</body>
+</html>
