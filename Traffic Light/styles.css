@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: grey;
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.buttons-container {
+    padding-top: 4rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn {
+    cursor: pointer;
+    height: 4rem;
+    width: 15rem;
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: purple;
+    border: 2px solid #66ff00;
+    color: black;
+}
+
+.reset-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.reset {
+    cursor: pointer;
+    background-color: red;
+    border: 4px solid black;
+    color: #fff;
+    font-size: 20px;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 100%;
+    margin-right: 2rem;
+}
+
+.lights {
+    padding: 3rem 2rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-lights-container {
+    padding: .5rem;
+    background-color: black;
+    border-radius: 2rem;
+}
+
+.red-light, .yellow-light, .green-light {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+    margin: .6rem;
+    border-radius: 100%;
+}
+
+.red-light {
+    background-color: #990000;
+}
+
+.yellow-light {
+    background-color: #DBA800;
+}
+
+.green-light {
+    background-color: green;
+}
