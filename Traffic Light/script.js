@@ -1,7 +1,3 @@
-// I want to use chained promises replacing timeouts callback hell for making the lights change.
-// Write out a promise that shows the "RED", "YELLOW", "GREEN" in console and then we can just replace with looking for the elements and chaning their colours.
-// But its essential that we understand how to create the promise and then how to chain it.
-
 const lightRed = document.getElementById("red-light")
 const lightYellow = document.getElementById("yellow-light")
 const lightGreen = document.getElementById("green-light")
