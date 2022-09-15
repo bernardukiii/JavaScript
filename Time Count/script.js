@@ -33,10 +33,10 @@ setInterval(() => {
   console.log(months + " month(s)")
   console.log(days + " day(s)")
 
-  counterYear.innerHTML = years + " " + "y"
-  counterMonth.innerHTML = months + " " + "m"
-  counterDay.innerHTML = days + " " + "d"
-  counterHour.innerHTML = hours + " " + "h"
-  counterMinute.innerHTML = minutes + " " + "m"
-  counterSecond.innerHTML = seconds + " " + "s"
+  counterYear.innerHTML = years
+  counterMonth.innerHTML = months
+  counterDay.innerHTML = days
+  counterHour.innerHTML = hours
+  counterMinute.innerHTML = minutes
+  counterSecond.innerHTML = seconds
 }, 1000)
