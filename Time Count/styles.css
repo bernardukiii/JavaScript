@@ -13,26 +13,20 @@
 
 body {
     background-color: var(--black-main);
-    height: 100vh;
+    
 }
 
 header {
     display: flex;
     justify-content: center;
     color: var(--dark-turquoise);
-    margin-bottom: 5rem;
+    margin: 5rem 0;
 }
 
 .bf-main-section {
     padding: 9.2rem;
 }
 
-.bf-time-container {
-    font-size: 2rem;
-    background-color: var(--black-main);
-    padding: 5rem;
-    height: calc(100vh - 50vh);
-}
 
 .bf-unit-boxes-container {
     display: flex;
