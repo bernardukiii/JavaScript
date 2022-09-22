@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --black-main: #0B0C10;
+    --graphite: #1F2833;
+    --light-grey: #C5C6C7;
+    --turquoise: #66FCF1;
+    --dark-turquoise: #45A29E;
+    --incorrect-dark-red: #800000;
+    --white-main: #ffffff;
+}
+
+body {
+    background-color: var(--black-main);
+    
+}
+
+.unclickable {
+    pointer-events: none;
+    opacity: 50%;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    color: var(--turquoise);
+    margin: 5rem  0  2rem 0;
+}
+
+.bf-dropdown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.bf-dropdown-label {
+    max-width: fit-content;
+    color: var(--dark-turquoise);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.bf-dropdown {
+    max-width: fit-content;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.bf-date-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bf-input {
+    width: 10rem;
+    height: 2rem;
+    border: 0.2rem solid var(--turquoise);
+    background-color: transparent;
+    color: var(--turquoise);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+.bf-input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+.bf-input-label-container {
+    display: flex;
+    margin-right: 2rem;
+}
+
+.bf-input-label {
+    display: flex;
+    align-items: center;
+    color: var(--white-main);
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.bf-input-warning {
+    position: absolute;
+    width: 10.4rem;
+    padding: 0.2rem;
+    margin-left: 0.01rem;
+    margin-top: 0.2rem;
+    background-color: lightcoral;
+    font-weight: 700;
+    color: var(--incorrect-dark-red);
+    border-radius: 0.1rem;
+    
+}
+
+
+.bf-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.bf-calculate-btn {
+    width: fit-content;
+    height: 2rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bf-main-section {
+    padding: 5rem 2rem;
+}
+
+
+.bf-unit-boxes-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bf-time-unit-box {
+    background-color: var(--graphite);
+    height: 15rem;
+    width: 10rem;
+    border-radius: 0.5rem;
+}
+
+
+.bf-displayed-time {
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--turquoise);
+}
+
+
+.bf-displayed-time-value {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-grey);
+    background-color: transparent;
+}
+
+
+
+
+.bf-calculate-btn {
+    border-radius: 0.5rem;
+    background-color: var(--turquoise);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--graphite);
+}
