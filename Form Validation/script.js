@@ -16,12 +16,17 @@ const agreeLabel = document.getElementById("agree-label")
 const successModal = document.getElementById("success-modal")
 const termsAndCoModal = document.getElementById("terms-and-co")
 const closeBtn = document.getElementById("close")
+const passwordCheckbox = document.getElementById("show-pswd")
 
 // Prevent default submit
 submitBtn.addEventListener("click", e => {
   e.preventDefault()
 
   acceptedTerms()
+})
+
+passwordCheckbox.addEventListener("change", () => {
+  togglePasswordVisibility() 
 })
 
 agreeLabel.addEventListener("click", () => {
@@ -81,6 +86,16 @@ function checkPassword() {
     acceptedPassword.classList.add("hide")
     minLengthPassword.classList.add("hide")
     mismatch.classList.remove("hide")
+  }
+}
+
+function togglePasswordVisibility () {
+  if (userPassword.type === "password" && passwordConfirmation.type === "password") {
+    userPassword.type = "text"
+    passwordConfirmation.type = "text"
+  } else {
+    userPassword.type = "password"
+    passwordConfirmation.type = "password"
   }
 }
 

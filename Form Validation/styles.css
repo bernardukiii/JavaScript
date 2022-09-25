@@ -165,3 +165,8 @@ input {
 ol {
     margin: 10px 20px;
 }
+
+.show-checkbox-container {
+    display: flex;
+    justify-content: end;
+}

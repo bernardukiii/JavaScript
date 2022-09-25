@@ -17,7 +17,7 @@
         <form action="success.html" id="form">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" placeholder="eg: MrRari_14" name="username" id="username" onblur="checkUserName()">
+                <input type="text" placeholder="eg: MrRari_14" name="username" id="username" onchange="checkUserName()">
                 <div id="prerequisites" class="prerequisites hide">
                     <p id="accepted" class="correct hide">Username meets requirements!</p>
                     <p id="min-length" class="hide">At least 8 characters.</p>
@@ -27,7 +27,7 @@
 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="text" name="password" id="password" class="disabled">
+                <input type="password" name="password" id="password" class="disabled">
                 <div id="prerequisites-pass" class="prerequisites hide">
                     <p id="min-length-pass" class="incorrect hide">At least 14 characters</p>
                 </div>
@@ -36,10 +36,17 @@
             
             <div class="form-group">
                 <label for="password-confirmation">Confirm password:</label>
-                <input type="text" name="confirmation" id="confirmation" class="disabled" onblur="checkPassword()">
+                <input type="password" name="confirmation" id="confirmation" class="disabled" onchange="checkPassword()">
                 <div id="prerequisites-confirm" class="prerequisites hide">
                     <p id="accepted-pass" class="correct hide">Password meets requirements</p>
                     <p id="mismatch" class="incorrect hide">Passwords don't match</p>
+                </div>
+
+                <div class="show-checkbox-container">
+                    <input type="checkbox" name="show" id="show-pswd" class="checkbox">
+                    <label class="agree-label" title="Show password">
+                        Show password
+                    </label>
                 </div>
             </div>
             <div class="agree-checkbox-container">
