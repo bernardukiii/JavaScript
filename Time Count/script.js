@@ -29,10 +29,6 @@ setInterval(() => {
   minutes %= 60
   seconds %= 60
 
-  console.log(years + " year(s)")
-  console.log(months + " month(s)")
-  console.log(days + " day(s)")
-
   counterYear.innerHTML = years
   counterMonth.innerHTML = months
   counterDay.innerHTML = days

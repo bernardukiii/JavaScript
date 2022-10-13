@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: grey;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  margin: 1rem 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.bf-cart-count {
+  display: flex;
+  font-size: 2rem;
+}
+
+.bf-cards-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  justify-content: space-around; 
+  max-width: calc(100vw - 10rem);
+}
+
+.bf-player-card {
+  border: 0.2rem solid white;
+  max-width: inherit;
+}
+
+.bf-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+  padding: 1rem;
+}
+
+.bf-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.bf-add-to-cart {
+  width: 6rem;
+  height: 2rem;
+  font-weight: 700;
+  background-color: lightgreen;
+}
+
+.bf-remove-from-cart {
+  background-color: lightcoral;
+  height: 2rem;
+  font-weight: 700;
+  width: 8rem;
+}
+
+.bf-player-name {
+  display: flex;
+  justify-content: center;
+  background-color: aliceblue;
+}
+
+.disabled {
+  background-color: lightgray;
+  border: none;
+  pointer-events: none;
+}
