@@ -52,6 +52,8 @@ document.addEventListener('click', (e) => {
         playerValue = price.getAttribute('value', 'value')
 
         substractPlayerValueToTotal()
+        saveTotal()
+        saveCart()
     }
 })
 
