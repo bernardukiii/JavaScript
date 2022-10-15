@@ -5,15 +5,23 @@
 // I need to store that value in local storage so I don't lose it when I refresh.
 // Add a spending limit.
 
-
 const basket = document.querySelector('span')
 const addButton = document.querySelector('.bf-add-to-cart')
 const basketCount = document.getElementById('basket-count')
-var playerId, playerValue, playerName
-var cartTotal = 0
-var total = []
+const showCart = document.getElementById('show-cart')
+var playerId, playerValue, playerName// Local storage prefix & key
+const LOCAL_STORAGE_PREFIX = "PLAYER_MARKT"
+const PLAYER_MARKT_KEY = `${LOCAL_STORAGE_PREFIX}-players`
+const TOTAL_MARKT_KEY = `${LOCAL_STORAGE_PREFIX}-cart-total`
 
-basketCount.innerHTML = 0
+const total = loadCart()
+var cartTotal = loadTotal()
+
+if (cartTotal === null) {
+    basketCount.innerHTML = 0
+} else {
+    basketCount.innerHTML = cartTotal
+}
 
 generatePlayerValue()
 
@@ -31,9 +39,12 @@ document.addEventListener('click', (e) => {
         const isPurchased = true
 
         btnRemove.classList.remove('disabled')
+        showCart.classList.remove('disabled')
 
         createPlayerObject()
         addPlayerValueToTotal()
+        saveTotal()
+        saveCart()
     } else if (e.target.matches('.bf-remove-from-cart') && cartTotal > 0) {
         const targetedElement = e.target
         const priceContainer = targetedElement.parentNode
@@ -91,21 +102,35 @@ function substractPlayerValueToTotal() {
 function updateCart() {
     basketCount.innerHTML = cartTotal
 
-
     if (cartTotal < 0) {
         cartTotal = 0
         basketCount.innerHTML = "0"
     }
 
-    total.forEach(item => {
-        console.log(item.name)
-    })
+}
+
+function saveCart() {
+    // SAVE PLAYER OBJECT
+    localStorage.setItem(PLAYER_MARKT_KEY, JSON.stringify(total))
 
 }
 
-function saveCartValue() {
-    // I need to store that value in local storage so I don't lose it when I refresh.
-    // With local storage.
-    // 
+function loadCart() {
+    const cartPlayersString = localStorage.getItem(PLAYER_MARKT_KEY)
+
+    return JSON.parse(cartPlayersString) || []
+}
+
+
+function saveTotal() {
+    // ALSO SAVE THE TOTAL AMOUNT
+    localStorage.setItem(TOTAL_MARKT_KEY, cartTotal)
 
 }
+
+function loadTotal() {
+    const cartValue = localStorage.getItem(TOTAL_MARKT_KEY)
+
+    return cartValue || 0
+}
+
