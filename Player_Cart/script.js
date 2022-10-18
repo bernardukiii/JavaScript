@@ -2,8 +2,8 @@
 // I need to add an event listener to the button so that it adds the value of the player to the total. -- DONE
 // Be able to delete a player from the basket. -- DONE
 // Display that total at the top right. -- DONE
-// I need to store that value in local storage so I don't lose it when I refresh.
-// Add a spending limit.
+// I need to store that value in local storage so I don't lose it when I refresh. -- DONE
+// Add a spending limit. -- DONE
 
 const basket = document.querySelector('span')
 const addButton = document.querySelector('.bf-add-to-cart')
@@ -85,8 +85,14 @@ function addPlayerValueToTotal() {
         if (total.length > 0) {     
             cartTotal = parseInt(cartTotal) + parseInt(playerValue)
 
-            updateCart()
-            
+            if (cartTotal > 25) {
+                alert('Over the spending limit')
+                substractPlayerValueToTotal()
+            } else {
+                updateCart()
+
+            }
+
         } else {
             console.error('Array is empty. Nothing to sum up.')
         }
@@ -107,7 +113,7 @@ function updateCart() {
     if (cartTotal < 0) {
         cartTotal = 0
         basketCount.innerHTML = "0"
-    }
+    } 
 
 }
 
