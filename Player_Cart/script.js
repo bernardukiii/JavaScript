@@ -1,21 +1,16 @@
-// I need to get the value of the players. -- DONE
-// I need to add an event listener to the button so that it adds the value of the player to the total. -- DONE
-// Be able to delete a player from the basket. -- DONE
-// Display that total at the top right. -- DONE
-// I need to store that value in local storage so I don't lose it when I refresh. -- DONE
-// Add a spending limit. -- DONE
-
+// GLobal variables
 const basket = document.querySelector('span')
 const addButton = document.querySelector('.bf-add-to-cart')
 const basketCount = document.getElementById('basket-count')
-var playerId, playerValue, playerName// Local storage prefix & key
+var playerId, playerValue, playerName
+// Local storage prefix & key
 const LOCAL_STORAGE_PREFIX = "PLAYER_MARKT"
 const PLAYER_MARKT_KEY = `${LOCAL_STORAGE_PREFIX}-players`
 const TOTAL_MARKT_KEY = `${LOCAL_STORAGE_PREFIX}-cart-total`
-
+// Load stuff
 const total = loadCart()
 var cartTotal = loadTotal()
-
+// Edgecase catcher
 if (cartTotal === null) {
     basketCount.innerHTML = 0
 } else {
@@ -24,6 +19,7 @@ if (cartTotal === null) {
 
 generatePlayerValue()
 
+// Click management
 document.addEventListener('click', (e) => {
     if (e.target.matches('.bf-add-to-cart')) {
         const targetedElement = e.target
@@ -62,7 +58,7 @@ function generatePlayerValue() {
         player.setAttribute('value', `${playerValue}`)
     })
 } 
-// I need an array of objects that have 3 values each. Player value and the name of the player and the id of the card.
+
 function createPlayerObject() {
     const player = {
         id: playerId,
@@ -95,7 +91,6 @@ function addPlayerValueToTotal() {
 
 function substractPlayerValueToTotal() {
     cartTotal = parseInt(cartTotal) - parseInt(playerValue)
-    // I also need to remove that player object from the array.
 
     updateCart()
             
@@ -111,8 +106,8 @@ function updateCart() {
 
 }
 
+// Save stuff and load functions
 function saveCart() {
-    // SAVE PLAYER OBJECT
     localStorage.setItem(PLAYER_MARKT_KEY, JSON.stringify(total))
 
 }
@@ -125,7 +120,6 @@ function loadCart() {
 
 
 function saveTotal() {
-    // ALSO SAVE THE TOTAL AMOUNT
     localStorage.setItem(TOTAL_MARKT_KEY, cartTotal)
 
 }
@@ -136,7 +130,7 @@ function loadTotal() {
     return cartValue || 0
 }
 
-// Need to figure out where to run this.
+// Add players to a cart list. Need to figure out where to run this
 function updateCartList() {
     const template = document.querySelector('template')
     const clonedTemplate = template.content.cloneNode('true')
