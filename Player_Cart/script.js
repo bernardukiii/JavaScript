@@ -8,7 +8,6 @@
 const basket = document.querySelector('span')
 const addButton = document.querySelector('.bf-add-to-cart')
 const basketCount = document.getElementById('basket-count')
-const showCart = document.getElementById('show-cart')
 var playerId, playerValue, playerName// Local storage prefix & key
 const LOCAL_STORAGE_PREFIX = "PLAYER_MARKT"
 const PLAYER_MARKT_KEY = `${LOCAL_STORAGE_PREFIX}-players`
@@ -35,11 +34,6 @@ document.addEventListener('click', (e) => {
         playerName = playerNameContainer[1].innerHTML
         const price = priceContainer.querySelector('span')
         playerValue = price.getAttribute('value', 'value')
-        const btnRemove = priceContainer.childNodes[3]
-        const isPurchased = true
-
-        btnRemove.classList.remove('disabled')
-        showCart.classList.remove('disabled')
 
         createPlayerObject()
         addPlayerValueToTotal()
