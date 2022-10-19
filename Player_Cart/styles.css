@@ -105,5 +105,9 @@ h3 {
   justify-content: space-between;
 }
 
+.hidden {
+  opacity: 0;
+}
+
 
 
