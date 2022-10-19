@@ -80,3 +80,30 @@ header {
   margin-left: 1rem;
 }
 
+.bf-cart-list-container {
+  background-color: lightblue;
+  position: absolute;
+  left: 5%;
+  top: 15%;
+  width: 20rem;
+  height: fit-content;
+  padding: 1rem;
+}
+
+.bf-cart-list {
+  background-color: white;
+  padding: 1rem;
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+.bf-player-li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+

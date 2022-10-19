@@ -107,7 +107,7 @@ function updateCart() {
     if (cartTotal < 0) {
         cartTotal = 0
         basketCount.innerHTML = "0"
-    } 
+    }
 
 }
 
@@ -136,3 +136,20 @@ function loadTotal() {
     return cartValue || 0
 }
 
+// Need to figure out where to run this.
+function updateCartList() {
+    const template = document.querySelector('template')
+    const clonedTemplate = template.content.cloneNode('true')
+    const cartList = document.querySelector("ul.bf-cart-list")
+    const cartItem = clonedTemplate.querySelector('.bf-player-li')
+    const cartPlayerName = clonedTemplate.querySelector('span')
+    const cartPlayerPrice = clonedTemplate.querySelector('.bf-price')
+    const buttonRemove = clonedTemplate.querySelector('button')
+
+    total.forEach(player => {
+        cartPlayerName.innerHTML = playerName
+        cartPlayerPrice.innerHTML = playerValue
+        
+        cartList.appendChild(cartItem)
+    })
+}
