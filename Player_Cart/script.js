@@ -2,6 +2,9 @@
 const basket = document.querySelector('span')
 const addButton = document.querySelector('.bf-add-to-cart')
 const basketCount = document.getElementById('basket-count')
+const viewCartBtn = document.getElementById('bf-show-cart')
+const closeBtn = document.getElementById('bf-close-btn')
+const cart = document.getElementById('cart-with-players')
 var playerId, playerValue, playerName
 // Local storage prefix & key
 const LOCAL_STORAGE_PREFIX = "PLAYER_MARKT"
@@ -48,6 +51,21 @@ document.addEventListener('click', (e) => {
         saveCart()
     }
 })
+
+// Open and view cart
+viewCartBtn.addEventListener('click', () => {
+    if (total.length > 0) {
+        cart.classList.remove('hidden')
+    } else {
+        alert('There is nothing in the cart!')
+    }
+})
+
+closeBtn.addEventListener('click', () => {
+    cart.classList.add('hidden')
+})
+
+
 
 
 //////// Functions ////////
