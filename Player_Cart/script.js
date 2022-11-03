@@ -10,12 +10,14 @@ const TOTAL_MARKT_KEY = `${LOCAL_STORAGE_PREFIX}-cart-total`
 // Load stuff
 const total = loadCart()
 var cartTotal = loadTotal()
+
 // Edgecase catcher
 if (cartTotal === null) {
     basketCount.innerHTML = 0
 } else {
     basketCount.innerHTML = cartTotal
 }
+
 
 generatePlayerValue()
 
@@ -66,8 +68,12 @@ function createPlayerObject() {
         name: playerName,
         
     }
-
-    total.push(player)
+    console.log(cartTotal)
+    if (cartTotal < 25) {
+        total.push(player)
+    } else {
+        return
+    }
 }
 
 function addPlayerValueToTotal() {
@@ -80,17 +86,19 @@ function addPlayerValueToTotal() {
                 substractPlayerValueToTotal()
             } else {
                 updateCart()
+                updateCartList()
 
             }
 
         } else {
-            console.error('Array is empty. Nothing to sum up.')
+            return
         }
     })
 }
 
 function substractPlayerValueToTotal() {
     cartTotal = parseInt(cartTotal) - parseInt(playerValue)
+    // I need to find a way to remove the object from the array entirely
 
     updateCart()
             
@@ -103,7 +111,6 @@ function updateCart() {
         cartTotal = 0
         basketCount.innerHTML = "0"
     }
-
 }
 
 // Save stuff and load functions
@@ -126,24 +133,26 @@ function saveTotal() {
 
 function loadTotal() {
     const cartValue = localStorage.getItem(TOTAL_MARKT_KEY)
+    updateCartList()
 
     return cartValue || 0
 }
 
-// Add players to a cart list. Need to figure out where to run this
-function updateCartList() {
-    const template = document.querySelector('template')
-    const clonedTemplate = template.content.cloneNode('true')
-    const cartList = document.querySelector("ul.bf-cart-list")
-    const cartItem = clonedTemplate.querySelector('.bf-player-li')
-    const cartPlayerName = clonedTemplate.querySelector('span')
-    const cartPlayerPrice = clonedTemplate.querySelector('.bf-price')
-    const buttonRemove = clonedTemplate.querySelector('button')
+function updateCartList() { 
+    if (total.length > 0) {
+        console.log(total)
+        total.forEach(player => {
+            const template = document.querySelector('template')
+            const clonedTemplate = template.content.cloneNode('true')
+            const cartList = document.querySelector("ul.bf-cart-list")
+            const cartItem = clonedTemplate.querySelector('.bf-player-li')
+            const cartPlayerName = clonedTemplate.querySelector('span')
+            const buttonRemove = clonedTemplate.querySelector('button')
+            cartPlayerName.innerHTML = player.name
+            cartList.appendChild(cartItem)
 
-    total.forEach(player => {
-        cartPlayerName.innerHTML = playerName
-        cartPlayerPrice.innerHTML = playerValue
-        
-        cartList.appendChild(cartItem)
-    })
+        })
+    } else {
+        return
+    }
 }
