@@ -40,15 +40,7 @@ document.addEventListener('click', (e) => {
         addPlayerValueToTotal()
         saveTotal()
         saveCart()
-    } else if (e.target.matches('.bf-remove-from-cart') && cartTotal > 0) {
-        const targetedElement = e.target
-        const priceContainer = targetedElement.parentNode
-        const price = priceContainer.querySelector('span')
-        playerValue = price.getAttribute('value', 'value')
 
-        substractPlayerValueToTotal()
-        saveTotal()
-        saveCart()
     }
 })
 
@@ -64,9 +56,6 @@ viewCartBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     cart.classList.add('hidden')
 })
-
-
-
 
 //////// Functions ////////
 function generatePlayerValue() {
@@ -86,7 +75,6 @@ function createPlayerObject() {
         name: playerName,
         
     }
-    console.log(cartTotal)
     if (cartTotal < 25) {
         total.push(player)
     } else {
@@ -158,19 +146,42 @@ function loadTotal() {
 
 function updateCartList() { 
     if (total.length > 0) {
-        console.log(total)
         total.forEach(player => {
             const template = document.querySelector('template')
             const clonedTemplate = template.content.cloneNode('true')
             const cartList = document.querySelector("ul.bf-cart-list")
             const cartItem = clonedTemplate.querySelector('.bf-player-li')
             const cartPlayerName = clonedTemplate.querySelector('span')
-            const buttonRemove = clonedTemplate.querySelector('button')
             cartPlayerName.innerHTML = player.name
             cartList.appendChild(cartItem)
 
         })
+
+        // Remove player from cart list
+        const removePlayerFromCart = document.querySelectorAll('.bf-remove-from-cart')
+
+        removePlayerFromCart.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (e.target.matches('.bf-remove-from-cart') && cartTotal > 0) {
+                    substractPlayerValueToTotal()
+                    saveTotal()
+                    saveCart()
+                }
+            })
+        })
     } else {
         return
     }
+}
+
+
+// Clear local storage for testing purposes
+const clearBtn = document.createElement('button')
+clearBtn.innerHTML = 'CLEAR'
+document.body.appendChild(clearBtn)
+
+clearBtn.addEventListener('click', () => { clearLocalStorage() })
+
+function clearLocalStorage() {
+    localStorage.clear()
 }
