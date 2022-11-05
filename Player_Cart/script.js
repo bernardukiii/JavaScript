@@ -36,6 +36,7 @@ document.addEventListener('click', (e) => {
         const price = priceContainer.querySelector('span')
         playerValue = price.getAttribute('value', 'value')
 
+
         createPlayerObject()
         addPlayerValueToTotal()
         saveTotal()
@@ -43,6 +44,24 @@ document.addEventListener('click', (e) => {
 
     }
 })
+
+document.addEventListener('click', (e) => {
+    if (e.target.matches('.bf-remove-from-cart') && cartTotal > 0) {
+        const targetedElemenT2 = e.target
+        const containerTargetedElement = targetedElemenT2.parentNode
+        const playerItemContainer = containerTargetedElement.parentNode
+        const playerNameContainer2 = playerItemContainer.firstChild
+        const playerItemName = playerNameContainer2.nextSibling.innerHTML
+
+        // Remove player from cart
+        console.log(total.find(playerItemName => playerItemName = playerItemName))
+        
+        substractPlayerValueToTotal()
+        saveTotal()
+        saveCart()
+    }
+})
+
 
 // Open and view cart
 viewCartBtn.addEventListener('click', () => {
@@ -104,7 +123,6 @@ function addPlayerValueToTotal() {
 
 function substractPlayerValueToTotal() {
     cartTotal = parseInt(cartTotal) - parseInt(playerValue)
-    // I need to find a way to remove the object from the array entirely
 
     updateCart()
             
@@ -144,7 +162,7 @@ function loadTotal() {
     return cartValue || 0
 }
 
-function updateCartList() { 
+function updateCartList() {  
     if (total.length > 0) {
         total.forEach(player => {
             const template = document.querySelector('template')
@@ -156,24 +174,10 @@ function updateCartList() {
             cartList.appendChild(cartItem)
 
         })
-
-        // Remove player from cart list
-        const removePlayerFromCart = document.querySelectorAll('.bf-remove-from-cart')
-
-        removePlayerFromCart.forEach(button => {
-            button.addEventListener('click', (e) => {
-                if (e.target.matches('.bf-remove-from-cart') && cartTotal > 0) {
-                    substractPlayerValueToTotal()
-                    saveTotal()
-                    saveCart()
-                }
-            })
-        })
     } else {
         return
     }
 }
-
 
 // Clear local storage for testing purposes
 const clearBtn = document.createElement('button')
@@ -184,4 +188,6 @@ clearBtn.addEventListener('click', () => { clearLocalStorage() })
 
 function clearLocalStorage() {
     localStorage.clear()
+    location.reload()
+    
 }
